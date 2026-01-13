@@ -1,0 +1,86 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #000; font-family: 'Arial', sans-serif; overflow: hidden; color: white; }
+
+/* Visual Click Ripple */
+.click-ripple {
+    position: fixed; width: 10px; height: 10px;
+    background: rgba(0, 212, 255, 0.6); border-radius: 50%;
+    pointer-events: none; transform: translate(-50%, -50%);
+    animation: ripple-out 0.4s linear; z-index: 9999;
+}
+@keyframes ripple-out {
+    from { width: 0; height: 0; opacity: 1; }
+    to { width: 80px; height: 80px; opacity: 0; }
+}
+
+/* Main Menu Layout */
+#main-menu { position: absolute; width: 100vw; height: 100vh; display: flex; z-index: 100; }
+#menu-bg {
+    position: absolute; width: 100%; height: 100%; z-index: -1;
+    background: linear-gradient(to right, rgba(0,0,0,1) 35%, rgba(0,0,0,0.2)),
+                url('https://images.unsplash.com/photo-1541339907198-e08756ebafe3?q=80&w=1920') center/cover;
+}
+#menu-left { flex: 1; display: flex; flex-direction: column; justify-content: center; padding-left: 8%; }
+#menu-right { flex: 1; display: flex; align-items: flex-end; justify-content: center; }
+#menu-right img { height: 95vh; filter: drop-shadow(0 0 15px rgba(0,0,0,0.5)); }
+
+#menu-left h1 { font-size: 4.5rem; color: #fff; margin-bottom: 5px; letter-spacing: 5px; }
+
+/* FIX: Jarak teks InDev */
+.indev-text { 
+    opacity: 0.6; 
+    margin-bottom: 20px; /* Ditambah agar tidak menempel tombol */
+    letter-spacing: 3px; 
+    font-size: 1.2rem;
+}
+
+.menu-buttons { display: flex; flex-direction: column; gap: 15px; }
+.menu-buttons button {
+    width: 280px; padding: 18px; background: transparent; color: white;
+    border: 1px solid rgba(255,255,255,0.2); cursor: pointer;
+    font-weight: bold; text-align: left; padding-left: 25px; transition: 0.3s;
+    letter-spacing: 1px;
+}
+.menu-buttons button:hover { background: white; color: black; padding-left: 40px; }
+
+/* Gameplay: Sprite di Tengah */
+#game-screen { position: relative; width: 100vw; height: 100vh; }
+#sprite-container {
+    position: absolute; bottom: 0; width: 100%; height: 100%;
+    display: flex; justify-content: center; align-items: flex-end;
+    z-index: 2; pointer-events: none;
+}
+#main-sprite { height: 92vh; opacity: 0; transition: 0.6s ease; }
+
+/* Dialogue Box & Word Spacing Fix */
+#dialogue-box {
+    position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
+    width: 85%; max-width: 950px; height: 170px;
+    background: rgba(0, 0, 0, 0.95); border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 30px; cursor: pointer; z-index: 10;
+}
+#text-display { 
+    line-height: 1.6; font-size: 1.25rem; color: #eee; 
+    white-space: pre-wrap; /* Mencegah kata menempel */
+}
+#name-tag { color: #00d4ff; font-weight: bold; font-size: 1.4rem; margin-bottom: 12px; }
+
+/* Navigasi Kanan Bawah */
+#bottom-menu { 
+    position: absolute; bottom: 15px; right: 30px; 
+    font-size: 0.75rem; color: #555; font-weight: bold;
+}
+#bottom-menu span { margin-left: 25px; cursor: pointer; transition: 0.2s; }
+#bottom-menu span:hover { color: #00d4ff; }
+
+/* Choice Overlay Tengah */
+#choice-overlay {
+    position: absolute; top: 45%; left: 50%; transform: translate(-50%, -50%);
+    display: flex; flex-direction: column; gap: 15px; z-index: 1000; align-items: center; width: 100%;
+}
+.btn-choice {
+    width: 85%; max-width: 550px; padding: 20px; background: white; 
+    border: none; font-weight: bold; border-radius: 4px; color: black;
+}
+.btn-choice:hover { background: #00d4ff; color: white; }
+.hidden { display: none !important; }

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PLACE HOLDER NAME</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body onclick="unlockAudio(); createClickEffect(event)">
+    <div id="game-container">
+        <div id="main-menu">
+            <div id="menu-bg"></div>
+            <div id="menu-left">
+                <h1>PLACEHOLDER</h1>
+                <p class="indev-text">IN DEVELOPMENT</p>
+                <div class="menu-buttons">
+                    <button onclick="playClick(); startGame()">START GAME</button>
+                    <button onclick="playClick(); loadGame()">LOAD GAME</button>
+                    <button onclick="playClick(); alert('Gallery coming soon!')">GALLERY</button>
+                    <button onclick="playClick(); alert('Goodbye!')">EXIT</button>
+                </div>
+            </div>
+            <div id="menu-right">
+                <img src="asset/bg/ab0943169ee0e0a6f39ecdeb50fef6c2.jpg" alt="Menu Sprite">
+            </div>
+        </div>
+
+        <div id="game-screen" class="hidden">
+            <div id="bg-layer"></div>
+            <div id="sprite-container">
+                <img id="main-sprite" src="" alt="Adachi Rei">
+            </div>
+
+            <div id="choice-overlay" class="hidden"></div>
+
+            <div id="dialogue-box" onclick="handleInteraction()">
+                <div id="name-tag">System</div>
+                <div id="text-display"></div>
+                
+                <div id="bottom-menu">
+                    <span onclick="playClick(); saveToBackend(event)">SAVE</span>
+                    <span onclick="playClick(); showMainMenu(event)">MENU</span>
+                </div>
+            </div>
+        </div>
+
+        <audio id="talk-sound" src="asset/ui/adachi rei.mp3" preload="auto"></audio>
+        <audio id="click-sound" src="asset/ui/click.mp3" preload="auto"></audio>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
