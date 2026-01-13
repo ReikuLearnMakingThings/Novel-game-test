@@ -10,7 +10,6 @@ public class savemanger {
         server.setExecutor(Executors.newVirtualThreadPerTaskExecutor());
 
         server.createContext("/save", exchange -> {
-            // Menambahkan Header CORS agar bisa diakses dari perangkat luar (HP)
             exchange.getResponseHeaders().set("Access-Control-Allow-Origin", "*");
             exchange.sendResponseHeaders(200, json.length());
             exchange.getResponseBody().write(json.getBytes());
@@ -22,3 +21,4 @@ public class savemanger {
     }
 
 }
+
