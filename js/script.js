@@ -4,9 +4,6 @@ let isTyping = false;
 let typeTimer;
 let audioUnlocked = false;
 
-// Alamat IP Laptop Anda
-const BACKEND_URL = "http://192.168.1.7:8080/save";
-
 function unlockAudio() {
     if (audioUnlocked) return;
     const talk = document.getElementById('talk-sound');
@@ -126,4 +123,5 @@ async function saveToBackend(e) {
     } catch (err) {
         alert("Backend Offline! Make sure savemanger.java is running.");
     }
+
 }
